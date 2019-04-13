@@ -1,5 +1,5 @@
 import mysql = require("promise-mysql");
-import { MYSQL_PASSWORD, MYSQL_PORT, MYSQL_USER, SCORES_TABLE, USERS_TABLE } from "../config/config";
+import { MYSQL_HOST, MYSQL_PASSWORD, MYSQL_PORT, MYSQL_USER, SCORES_TABLE, USERS_TABLE } from "../config/config";
 import { MySQLServiceT } from "../types/service/MySQLService";
 import * as Bluebird from "bluebird";
 
@@ -59,7 +59,7 @@ export const MySQLService = () => {
 
 	const createPool = () => {
 		pool = mysql.createPool({
-			host: "localhost",
+			host: MYSQL_HOST,
 			port: MYSQL_PORT,
 			database: "arni",
 			user: MYSQL_USER,

@@ -7,6 +7,7 @@ import { ScoreHandler } from "./handler/ScoreHandler";
 import { MySQLServiceT } from "./types/service/MySQLService";
 import { UserHandler } from "./handler/UserHandler";
 import { UserRouter } from "./routers/UserRouter";
+import { logger } from "./utils/logger";
 
 export const App = (mysql: MySQLServiceT) => {
 	const app = express();
@@ -18,7 +19,7 @@ export const App = (mysql: MySQLServiceT) => {
 	app.use(express.urlencoded({extended: true}));
 
 	app.use((req: express.Request, res: express.Response, next: Function) => {
-		console.info("New Request: ", req.url);
+		logger.info("New Request: ", req.url);
 		next();
 	});
 
