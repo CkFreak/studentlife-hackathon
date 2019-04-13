@@ -1,3 +1,7 @@
+const appInsights = require("applicationinsights");
+appInsights.setup("a96023ab-acad-4682-81d1-a87623aac394");
+appInsights.start();
+
 import { App } from "./app";
 import { PORT } from "./config/config";
 import { MySQLService } from "./service/MySQLService";
